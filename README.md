@@ -198,3 +198,6 @@ document.addEventListener("keydown", function(event) {
 ![스크린샷 2024-10-04 150901](https://github.com/user-attachments/assets/5d850067-11e9-4092-bc4b-cbf275ba18f7)
 
 ![스크린샷 2024-10-04 150905](https://github.com/user-attachments/assets/5c31200e-1147-42bc-9ce8-3ebbcfa9fd72)
+
+![스크린샷 2024-10-04 150824](https://github.com/user-attachments/assets/2977c3e9-e62d-43df-982a-2156d9a8023d)
+![스크린샷 2024-10-04 150829](https://github.com/user-attachments/assets/ba3a8158-8b7f-4491-a759-9e5be48a72ae)
