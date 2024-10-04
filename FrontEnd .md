@@ -1,6 +1,10 @@
-# 계산기 프로젝트
+# HTML, CSS, JavaScript 계산기 프로젝트
 
-## HTML 파일: test.html
+이 프로젝트는 HTML, CSS, JavaScript를 사용하여 만든 간단한 계산기입니다. 기본적인 사칙연산 기능과 몇 가지 추가 기능을 포함하고 있습니다.
+
+## 1. HTML: `test.html`
+
+HTML 파일은 계산기의 구조를 정의합니다. A-F와 같은 16진수 입력 버튼, 기본 연산 버튼, 그리고 결과를 표시할 디스플레이를 포함합니다.
 
 ```html
 <!DOCTYPE html>
@@ -51,132 +55,3 @@
     <script src="test2.jss"></script>
 </body>
 </html>
-
-## CSS 파일: css.css
-body {        
-    font-family: Arial, sans-serif;        
-    display: flex;        
-    justify-content: center;        
-    align-items: center;        
-    height: 100vh;        
-    margin: 0;        
-    background-color: white;        
-}
-
-.calculator {        
-    width: 300px;        
-    background-color: #000;        
-    border-radius: 20px;        
-    padding: 15px;        
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);        
-}
-
-.display {        
-    margin-bottom: 20px;        
-}
-
-#result {        
-    width: 100%;        
-    height: 50px;        
-    background-color: #333;        
-    color: white;        
-    font-size: 1.8em;        
-    text-align: right;        
-    border: none;        
-    border-radius: 10px;        
-    padding: 10px;        
-    box-sizing: border-box;        
-}
-
-.buttons {        
-    display: grid;        
-    grid-template-columns: repeat(5, 1fr);        
-    gap: 8px;        
-}
-
-.btn {        
-    background-color: #555;        
-    color: white;        
-    font-size: 1.2em;        
-    border: none;        
-    border-radius: 15px;        
-    padding: 10px;        
-    cursor: pointer;        
-    text-align: center;        
-}
-
-.function-btn {        
-    background-color: #888;        
-}
-
-.operator {        
-    background-color: #f90;        
-}
-
-.equals {        
-    background-color: #ff5e3a;        
-    border-radius: 15px;        
-}
-
-.btn:hover {        
-    opacity: 0.8;        
-}
-
-## JS 파일: test2.jss
-let expression = "";                        
-
-function appendNumber(number) {                        
-    expression += number;                        
-    document.getElementById("result").value = expression;                        
-}                        
-
-function appendOperator(operator) {                        
-    expression += " " + operator + " ";                        
-    document.getElementById("result").value = expression;                        
-}                        
-
-function clearScreen() {                        
-    expression = "";                        
-    document.getElementById("result").value = "";                        
-}                        
-
-function deleteLast() {                        
-    expression = expression.trim();                        
-    if (expression.length > 0) {                        
-        expression = expression.slice(0, -1);                        
-        document.getElementById("result").value = expression;                        
-    }                        
-}                        
-
-function calculateResult() {                        
-    try {                        
-        expression = eval(expression.replace('÷', '/').replace('×', '*')).toString();                        
-        document.getElementById("result").value = expression;                        
-    } catch (error) {                        
-        document.getElementById("result").value = "Error";                        
-    }                        
-}                        
-
-document.addEventListener("keydown", function(event) {                        
-    const key = event.key;                        
-    if (!isNaN(key)) {                        
-        appendNumber(key);                        
-    } else if (key === '+') {                        
-        appendOperator('+');                        
-    } else if (key === '-') {                        
-        appendOperator('-');                        
-    } else if (key === '*') {                        
-        appendOperator('*');                        
-    } else if (key === '/') {                        
-        appendOperator('/');                        
-    } else if (key === 'Enter') {                        
-        event.preventDefault();                        
-        calculateResult();                        
-    } else if (key === 'Backspace') {                        
-        deleteLast();                        
-    } else if (key === 'Escape') {                        
-        clearScreen();                        
-    }                        
-});                        
-
-         
