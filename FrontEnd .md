@@ -1,4 +1,6 @@
-# test.html
+# 계산기 프로젝트
+
+## HTML 파일: test.html
 
 ```html
 <!DOCTYPE html>
@@ -50,6 +52,7 @@
 </body>
 </html>
 
+## CSS 파일: css.css
 body {        
     font-family: Arial, sans-serif;        
     display: flex;        
@@ -58,18 +61,21 @@ body {
     height: 100vh;        
     margin: 0;        
     background-color: white;        
-    }        
-    .calculator {        
+}
+
+.calculator {        
     width: 300px;        
     background-color: #000;        
     border-radius: 20px;        
     padding: 15px;        
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);        
-    }        
-    .display {        
+}
+
+.display {        
     margin-bottom: 20px;        
-    }        
-    #result {        
+}
+
+#result {        
     width: 100%;        
     height: 50px;        
     background-color: #333;        
@@ -80,13 +86,15 @@ body {
     border-radius: 10px;        
     padding: 10px;        
     box-sizing: border-box;        
-    }        
-    .buttons {        
+}
+
+.buttons {        
     display: grid;        
     grid-template-columns: repeat(5, 1fr);        
     gap: 8px;        
-    }        
-    .btn {        
+}
+
+.btn {        
     background-color: #555;        
     color: white;        
     font-size: 1.2em;        
@@ -95,74 +103,80 @@ body {
     padding: 10px;        
     cursor: pointer;        
     text-align: center;        
-    }        
-    .function-btn {        
+}
+
+.function-btn {        
     background-color: #888;        
-    }        
-    .operator {        
+}
+
+.operator {        
     background-color: #f90;        
-    }        
-    .equals {        
+}
+
+.equals {        
     background-color: #ff5e3a;        
     border-radius: 15px;        
-    }        
-    .btn:hover {        
+}
+
+.btn:hover {        
     opacity: 0.8;        
-    }        
+}
 
-
+## JS 파일: test2.jss
 let expression = "";                        
-                        
+
 function appendNumber(number) {                        
-expression += number;                        
-document.getElementById("result").value = expression;                        
+    expression += number;                        
+    document.getElementById("result").value = expression;                        
 }                        
-                        
+
 function appendOperator(operator) {                        
-expression += " " + operator + " ";                        
-document.getElementById("result").value = expression;                        
+    expression += " " + operator + " ";                        
+    document.getElementById("result").value = expression;                        
 }                        
-                        
+
 function clearScreen() {                        
-expression = "";                        
-document.getElementById("result").value = "";                        
+    expression = "";                        
+    document.getElementById("result").value = "";                        
 }                        
-                        
+
 function deleteLast() {                        
-expression = expression.trim();                        
-if (expression.length > 0) {                        
-expression = expression.slice(0, -1);                        
-document.getElementById("result").value = expression;                        
+    expression = expression.trim();                        
+    if (expression.length > 0) {                        
+        expression = expression.slice(0, -1);                        
+        document.getElementById("result").value = expression;                        
+    }                        
 }                        
-}                        
-                        
+
 function calculateResult() {                        
-try {                        
-expression = eval(expression.replace('÷', '/').replace('×', '*')).toString();                        
-document.getElementById("result").value = expression;                        
-} catch (error) {                        
-document.getElementById("result").value = "Error";                        
+    try {                        
+        expression = eval(expression.replace('÷', '/').replace('×', '*')).toString();                        
+        document.getElementById("result").value = expression;                        
+    } catch (error) {                        
+        document.getElementById("result").value = "Error";                        
+    }                        
 }                        
-}                        
-                        
+
 document.addEventListener("keydown", function(event) {                        
-const key = event.key;                        
-if (!isNaN(key)) {                        
-appendNumber(key);                        
-} else if (key === '+') {                        
-appendOperator('+');                        
-} else if (key === '-') {                        
-appendOperator('-');                        
-} else if (key === '*') {                        
-appendOperator('*');                        
-} else if (key === '/') {                        
-appendOperator('/');                        
-} else if (key === 'Enter') {                        
-event.preventDefault();                        
-calculateResult();                        
-} else if (key === 'Backspace') {                        
-deleteLast();                        
-} else if (key === 'Escape') {                        
-clearScreen();                        
-}                        
+    const key = event.key;                        
+    if (!isNaN(key)) {                        
+        appendNumber(key);                        
+    } else if (key === '+') {                        
+        appendOperator('+');                        
+    } else if (key === '-') {                        
+        appendOperator('-');                        
+    } else if (key === '*') {                        
+        appendOperator('*');                        
+    } else if (key === '/') {                        
+        appendOperator('/');                        
+    } else if (key === 'Enter') {                        
+        event.preventDefault();                        
+        calculateResult();                        
+    } else if (key === 'Backspace') {                        
+        deleteLast();                        
+    } else if (key === 'Escape') {                        
+        clearScreen();                        
+    }                        
 });                        
+
+         
